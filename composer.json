@@ -1,0 +1,36 @@
+{
+  "name": "nicolassing/quill-bundle",
+  "type": "symfony-bundle",
+  "description": "A Symfony bundle that integrates Quill as a drop-in replacement for textarea Symfony form.",
+  "keywords": ["symfony","quill","rte"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nicolas Assing",
+      "email": "nicolas.assing@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3",
+    "symfony/form": "^4.0",
+    "symfony/framework-bundle": "^4.0",
+    "symfony/templating": "^4.0",
+    "symfony/twig-bundle": "^4.0",
+    "symfony/validator": "^4.0",
+    "twig/twig": "^2.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.2",
+    "phpunit/phpunit": "^6.5",
+    "symfony/phpunit-bridge": "^4.0",
+    "symfony/yaml": "^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nicolassing\\QuillBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  }
+}
