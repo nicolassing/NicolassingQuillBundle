@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="nicolassing_quill.quill_type" class="Nicolassing\Form\Type\QuillType">
+        <service id="nicolassing_quill.quill_type" class="Nicolassing\QuillBundle\Form\Type\QuillType">
             <argument>%nicolassing_quill.config%</argument>
             <tag name="form.type" />
         </service>
