@@ -6,6 +6,7 @@
 
     <services>
         <service id="nicolassing_quill.quill_type" class="Nicolassing\Form\Type\QuillType">
+            <argument>%nicolassing_quill.config%</argument>
             <tag name="form.type" />
         </service>
     </services>
