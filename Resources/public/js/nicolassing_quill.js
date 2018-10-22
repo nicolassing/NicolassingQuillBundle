@@ -4,6 +4,6 @@ containers.each(function () {
     theme: $(this).data('theme')
   });
   quill.on('text-change', function(delta, oldDelta, source) {
-    $($(this).data('id')).val(quill.root.innerHTML);
+    $("#"+$(this).data('id')).val(quill.root.innerHTML);
   });
 });
