@@ -9,6 +9,7 @@
             <argument>%nicolassing_quill.config%</argument>
             <tag name="form.type" />
         </service>
+        <service id="Nicolassing\QuillBundle\Form\Type\QuillType" alias="nicolassing_quill.quill_type" />
     </services>
 
 </container>
