@@ -3,7 +3,8 @@ containers.each(function () {
   var quill = new Quill($(this).get(0), {
     theme: $(this).data('theme')
   });
+  var textareaId = $(this).data('id');
   quill.on('text-change', function(delta, oldDelta, source) {
-    $("#"+$(this).data('id')).val(quill.root.innerHTML);
+    $("#"+textareaId).val(quill.root.innerHTML);
   });
 });
