@@ -5,6 +5,6 @@ containers.each(function () {
   });
   var textareaId = $(this).data('id');
   quill.on('text-change', function(delta, oldDelta, source) {
-    $("#"+textareaId).val(quill.root.innerHTML);
+    $("#"+textareaId).val(quill.root.innerHTML.replace(/"/g, '\''));
   });
 });
