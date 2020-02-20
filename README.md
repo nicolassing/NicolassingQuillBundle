@@ -1,4 +1,7 @@
 # NicolassingQuillBundle
+[![Latest Stable Version](https://poser.pugx.org/nicolassing/quill-bundle/v/stable)](https://packagist.org/packages/nicolassing/quill-bundle)
+[![License](https://poser.pugx.org/nicolassing/quill-bundle/license)](https://packagist.org/packages/nicolassing/quill-bundle)
+[![Build Status](https://travis-ci.org/nicolassing/NicolassingQuillBundle.svg?branch=master)](https://travis-ci.org/nicolassing/NicolassingQuillBundle)
 
 This bundle integrate [quilljs](https://quilljs.com/docs) in your Symfony project.
 
