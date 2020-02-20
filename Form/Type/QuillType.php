@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the FOSUserBundle package.
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Nicolassing\QuillBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
@@ -20,23 +27,23 @@ class QuillType extends AbstractType
         $this->config = $config;
     }
 
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $view->vars['theme'] = $options['theme'];
         $view->vars['height'] = $options['height'];
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(
-            array(
+            [
                 'theme' => $this->config['theme'],
-                'height' => $this->config['height']
-            )
+                'height' => $this->config['height'],
+            ]
         );
     }
 
-    public function getParent()
+    public function getParent(): string
     {
         return TextareaType::class;
     }

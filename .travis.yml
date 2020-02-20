@@ -1,0 +1,36 @@
+
+language: php
+
+dist: bionic
+sudo: false
+
+cache:
+    directories:
+        - $HOME/.composer/cache/files
+        - .phpunit
+
+env:
+    global:
+        - SYMFONY_PHPUNIT_DIR=.phpunit
+
+matrix:
+    fast_finish: true
+    include:
+        - php: 7.2
+        - php: 7.3
+        # Test against dev versions
+        - php: nightly
+          env: DEPENDENCIES=dev
+    allow_failures:
+        - env: DEPENDENCIES=dev
+
+before_install:
+    - composer self-update
+    - if [ "$DEPENDENCIES" = "dev" ]; then perl -pi -e 's/^}$/,"minimum-stability":"dev"}/' composer.json; fi;
+    - if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony:"$SYMFONY_VERSION"; fi
+
+install:
+    - composer update $COMPOSER_FLAGS
+    - ./vendor/bin/simple-phpunit install
+
+script: ./vendor/bin/simple-phpunit -v --coverage-text

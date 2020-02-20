@@ -1,9 +1,17 @@
 <?php
 
+/*
+ * This file is part of the FOSUserBundle package.
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Nicolassing\QuillBundle\Tests\DependencyInjection;
 
 use Nicolassing\QuillBundle\DependencyInjection\NicolassingQuillExtension;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Parser;
 
@@ -12,26 +20,22 @@ use Symfony\Component\Yaml\Parser;
  */
 class NicolassingQuillExtensionTest extends TestCase
 {
-    /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
-     */
     public function testLoadThrowsExceptionUnlessThemeSet()
     {
         $loader = new NicolassingQuillExtension();
         $config = $this->getFullConfig();
         unset($config['theme']);
-        $loader->load(array($config), new ContainerBuilder());
+        $this->expectException(InvalidConfigurationException::class);
+        $loader->load([$config], new ContainerBuilder());
     }
 
-    /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
-     */
     public function testLoadThrowsExceptionUnlessHeightSet()
     {
         $loader = new NicolassingQuillExtension();
         $config = $this->getFullConfig();
         unset($config['height']);
-        $loader->load(array($config), new ContainerBuilder());
+        $this->expectException(InvalidConfigurationException::class);
+        $loader->load([$config], new ContainerBuilder());
     }
 
     public function testLoadConfig()
@@ -39,10 +43,10 @@ class NicolassingQuillExtensionTest extends TestCase
         $configuration = new ContainerBuilder();
         $loader = new NicolassingQuillExtension();
         $config = $this->getFullConfig();
-        $loader->load(array($config), $configuration);
+        $loader->load([$config], $configuration);
 
         $this->assertTrue($configuration->hasParameter('nicolassing_quill.config'));
-        $this->assertEquals(['theme' => 'snow', 'height' => '10rem'], $configuration->getParameter('nicolassing_quill.config'));
+        $this->assertSame(['theme' => 'snow', 'height' => '10rem'], $configuration->getParameter('nicolassing_quill.config'));
     }
 
     protected function getFullConfig()
@@ -52,6 +56,7 @@ theme: snow
 height: 10rem
 EOF;
         $parser = new Parser();
+
         return $parser->parse($yaml);
     }
 }

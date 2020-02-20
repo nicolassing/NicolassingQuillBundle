@@ -1,8 +1,8 @@
 {% block quill_widget %}
-    {% spaceless %}
+    {% apply spaceless %}
         <div class="quill" data-theme="{{ theme }}" data-id="{{ id }}" style="height: {{ height }}">
             {{ value|raw }}
         </div>
         <input type="hidden" {{ block('widget_attributes') }} value="{{ value }}" />
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
