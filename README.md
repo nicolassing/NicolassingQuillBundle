@@ -55,5 +55,5 @@ Add javascript and stylesheet in your twig template
 
 <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script src="bundles/nicolassingquill/js/nicolassing_quill.js"></scriptt>
+<script src="bundles/nicolassingquill/js/nicolassing_quill.js"></script>
 ```
