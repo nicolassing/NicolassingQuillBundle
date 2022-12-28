@@ -57,3 +57,10 @@ Add javascript and stylesheet in your twig template
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src="bundles/nicolassingquill/js/nicolassing_quill.js"></script>
 ```
+
+## Contributing ##
+Before submitting a Pull Request please check all tests pass 
+```
+vendor/bin/php-cs-fixer fix .
+vendor/bin/simple-phpunit
+```
